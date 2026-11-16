@@ -1,0 +1,18 @@
+{
+  "title": "Five Nights at Jølle",
+  "theme": "Horror",
+  "status": "Under development",
+  "description": "Utforsk verdenen bak Five Nights at Jølle. Finn informasjon, bilder og oppdateringer om spillet.",
+  "image": "Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg",
+  "page": "./",
+  "developer": "API Games",
+  "releaseDate": "TBA",
+  "platforms": [
+    "PC"
+  ],
+  "tags": [
+    "Horror",
+    "Survival",
+    "Indie"
+  ]
+}
