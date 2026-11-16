@@ -3,52 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101116">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="API Games — uavhengig spillstudio. Utforsk spillene og prosjektene våre.">
 <title>API Games</title>
 <style>
-:root{color-scheme:dark;--bg:#101116;--panel:#191b23;--line:#2b2e39;--muted:#a1a5b4;--text:#f4f5fa;--accent:#9b8cff}
+:root{color-scheme:dark;--bg:#080b12;--panel:#101722;--line:#233143;--muted:#a3b1c2;--text:#f4f8ff;--blue:#18bdf2}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#292342 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
-header{max-width:1100px;margin:auto;padding:34px 26px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:19px;font-weight:800;letter-spacing:2px}.brand span{color:var(--accent)}
-.tag{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
-main{max-width:1100px;margin:0 auto;padding:90px 26px 100px}
-.eyebrow{color:var(--accent);font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:700}
-h1{font-size:clamp(48px,9vw,88px);line-height:.98;letter-spacing:-5px;margin:20px 0 18px}
-.intro{max-width:560px;color:var(--muted);font-size:16px;line-height:1.8}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:75px 0 22px}
-h2{font-size:22px;margin:0;letter-spacing:-.5px}.count{font-size:12px;color:var(--muted)}
-.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
-.game{display:block;position:relative;min-height:270px;padding:28px;text-decoration:none;color:inherit;background:linear-gradient(145deg,#20222d,#171922);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .22s,border-color .22s,box-shadow .22s}
-.game:hover{transform:translateY(-5px);border-color:#7770b8;box-shadow:0 20px 55px #0006}
-.game:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
-.game-art{position:absolute;right:-25px;top:15px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,#554a8b66,transparent 68%);pointer-events:none}
-.game-icon{position:relative;width:52px;height:52px;display:grid;place-items:center;border:1px solid #514b70;border-radius:14px;background:#29263c;font-size:25px;margin-bottom:38px}
-.game h3{position:relative;font-size:25px;margin:0 0 9px;letter-spacing:-.8px}
-.game p{position:relative;color:var(--muted);font-size:13px;line-height:1.7;margin:0;max-width:340px}
-.open{position:absolute;right:25px;bottom:27px;color:#c4bcff;font-size:12px;font-weight:700;letter-spacing:1px}
-footer{max-width:1100px;margin:auto;padding:25px 26px 35px;border-top:1px solid var(--line);color:#777c8c;font-size:11px;letter-spacing:1px}
-@media(max-width:600px){header{padding:25px 20px}main{padding:65px 20px 75px}h1{letter-spacing:-3px}.section-head{margin-top:55px}.game{min-height:245px}}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -25%,#12304b 0,transparent 55%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+header{height:78px;max-width:1200px;margin:auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:21px;font-weight:900;letter-spacing:3px}.brand span{color:var(--blue)}
+.navtag{font-size:10px;color:#8fa3b9;letter-spacing:2px;text-transform:uppercase}
+main{max-width:1200px;margin:auto;padding:30px 28px 100px}
+.hero{position:relative;min-height:430px;display:flex;align-items:center;overflow:hidden;border:1px solid #1c3a51;border-radius:25px;background:linear-gradient(90deg,#07111deF 0%,#07111dcc 48%,#07111d22 100%),url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center/cover}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 85% 50%,#19bdf222,transparent 45%)}
+.hero-content{position:relative;z-index:1;max-width:650px;padding:65px}
+.eyebrow{color:var(--blue);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(48px,7vw,82px);line-height:.94;letter-spacing:-4px;margin:20px 0}
+.intro{max-width:510px;color:#b5c3d2;font-size:15px;line-height:1.8;margin:0}
+.hero-mark{margin-top:30px;display:inline-flex;align-items:center;gap:10px;color:#d8f6ff;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.hero-mark:before{content:"";width:30px;height:2px;background:var(--blue)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:72px 0 22px}
+h2{font-size:25px;letter-spacing:-.7px;margin:0}.count{font-size:10px;color:#8294a8;letter-spacing:2px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px}
+.game{display:block;position:relative;min-height:370px;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.game:hover{transform:translateY(-6px);border-color:#168fc0;box-shadow:0 22px 60px #0008}
+.game:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.game-image{height:215px;position:relative;overflow:hidden;background:#0c1420}
+.game-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101722 0%,transparent 65%)}
+.game-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s}
+.game:hover .game-image img{transform:scale(1.045)}
+.game-info{padding:3px 25px 28px}
+.game-label{font-size:9px;color:var(--blue);letter-spacing:2px;text-transform:uppercase;font-weight:800}
+.game h3{font-size:24px;margin:9px 0 8px;letter-spacing:-.7px}
+.game p{color:var(--muted);font-size:13px;line-height:1.7;margin:0;max-width:420px}
+.open{position:absolute;right:24px;bottom:30px;color:#6edcff;font-size:11px;font-weight:800;letter-spacing:1.5px}
+.coming{margin-top:22px;padding:22px 25px;border:1px dashed #26384a;border-radius:15px;color:#8294a8;font-size:12px;line-height:1.7}
+footer{max-width:1200px;margin:auto;padding:25px 28px 35px;border-top:1px solid #1c2837;color:#728196;font-size:10px;letter-spacing:1.5px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:650px){header{height:68px;padding:0 20px}.navtag{display:none}main{padding:18px 16px 70px}.hero{min-height:420px;border-radius:18px;background-position:58% center}.hero-content{padding:32px 25px}h1{letter-spacing:-2.5px}.intro{font-size:14px}.section-head{margin-top:52px}.game{min-height:350px}.game-image{height:190px}footer{padding-left:18px;padding-right:18px;flex-direction:column;gap:8px}}
 </style>
 </head>
 <body>
-<header><div class="brand">API <span>GAMES</span></div><div class="tag">Independent game studio</div></header>
+<header><div class="brand">API <span>GAMES</span></div><div class="navtag">Independent game studio · Norway</div></header>
 <main>
-<div class="eyebrow">Welcome to API Games</div>
-<h1>Games made<br>with passion.</h1>
-<p class="intro">Velkommen til API Games. Her finner du spillene våre, prosjektene våre og nye ting vi lager.</p>
-<div class="section-head"><h2>Våre spill</h2><div class="count">01 PROJECT</div></div>
-<div class="games">
+<section class="hero">
+<div class="hero-content">
+<div class="eyebrow">Independent game studio</div>
+<h1>We make<br>games worth playing.</h1>
+<p class="intro">Velkommen til API Games. Vi lager spill, bygger verdener og deler prosjektene våre etter hvert som de utvikles.</p>
+<div class="hero-mark">Explore our projects</div>
+</div>
+</section>
+<div class="section-head"><h2>Våre spill</h2><div class="count">01 / PROJECT</div></div>
+<section class="games">
 <a class="game" href="games/FNAJ/">
-<div class="game-art"></div>
-<div class="game-icon" aria-hidden="true">🎮</div>
+<div class="game-image"><img src="games/FNAJ/Images/Bilde_2026-10-05_213933909.png" alt="Five Nights at Jølle — spillbilde" loading="lazy"></div>
+<div class="game-info">
+<div class="game-label">Horror · Under development</div>
 <h3>Five Nights at Jølle</h3>
-<p>Et ubehagelig mysterium venter. Besøk den offisielle FNAJ-siden for informasjon og spillet.</p>
+<p>Et ubehagelig mysterium venter. Utforsk spillets verden, se utviklingen og finn mer informasjon på den offisielle FNAJ-siden.</p>
+</div>
 <span class="open">ÅPNE SIDE ↗</span>
 </a>
-</div>
+</section>
+<div class="coming">Flere prosjekter kommer etter hvert. Følg med mens API Games vokser.</div>
 </main>
-<footer>© <span id="year"></span> API GAMES · ALL RIGHTS RESERVED</footer>
+<footer><span>© <span id="year"></span> API GAMES</span><span>ALL RIGHTS RESERVED</span></footer>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
