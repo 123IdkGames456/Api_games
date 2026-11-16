@@ -59,7 +59,7 @@ footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid 
 <p class="intro">Velkommen til API Games. Her finner du spillene og prosjektene vi lager. Utforsk, følg utviklingen og se hva som kommer videre.</p>
 <div class="section-head"><h2>Games</h2><div class="section-line"></div></div>
 <section class="games">
-<a class="game" href="games/FNAJ/">
+<a class="game" href="games/FNAJ/" data-config="games/FNAJ/game.json">
 <div class="art"><img src="games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg" alt="Five Nights at Jølle artwork" loading="lazy"></div>
 <div class="info"><div class="label">Horror · Under development</div><h3>Five Nights at Jølle</h3><p>Utforsk verdenen bak Five Nights at Jølle. Finn informasjon, bilder og oppdateringer om spillet.</p><span class="open">VIS SPILLET ↗</span></div>
 </a>
@@ -90,15 +90,33 @@ document.getElementById('year').textContent=new Date().getFullYear();
  const theme=document.getElementById('detailTheme');
  const open=document.getElementById('detailOpen');
  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
- document.querySelectorAll('.game').forEach(card=>{
+ document.querySelectorAll('.game').forEach(async card=>{
+  let data=null;
+  try{
+   const configUrl=new URL(card.dataset.config,location.href);
+   const response=await fetch(configUrl);
+   if(!response.ok)throw new Error('Could not load game metadata');
+   data=await response.json();
+   card.__gameData=data;
+   const imageUrl=new URL(data.image,configUrl).href;
+   const pageUrl=new URL(data.page||'./',configUrl).href;
+   const art=card.querySelector('.art img');
+   art.src=imageUrl;
+   art.alt=data.title+' artwork';
+   card.querySelector('h3').textContent=data.title;
+   card.querySelector('.label').textContent=[data.theme,data.status].filter(Boolean).join(' · ');
+   card.querySelector('.info p').textContent=data.description;
+   card.href=pageUrl;
+  }catch(error){console.warn('Game metadata could not be loaded:',error);}
   card.addEventListener('click',event=>{
    if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
    event.preventDefault();
+   const game=card.__gameData;
    const art=card.querySelector('.art img');
    image.src=art.src;image.alt=art.alt;
-   title.textContent=card.querySelector('h3').textContent;
-   description.textContent=card.querySelector('.info p').textContent;
-   theme.textContent=card.querySelector('.label').textContent.split('·')[0].trim();
+   title.textContent=game?.title||card.querySelector('h3').textContent;
+   description.textContent=game?.description||card.querySelector('.info p').textContent;
+   theme.textContent=game?.theme||card.querySelector('.label').textContent.split('·')[0].trim();
    open.href=card.href;
    overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
    document.getElementById('detailBack').focus();
