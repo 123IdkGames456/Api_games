@@ -123,8 +123,8 @@ document.getElementById('year').textContent=new Date().getFullYear();
    theme.textContent=game?.theme||card.querySelector('.label').textContent.split('·')[0].trim();
    meta.replaceChildren();
    if(game){
-    [['Developer',game.developer],['Release',game.releaseDate],['Platforms',Array.isArray(game.platforms)?game.platforms.join(', '):game.platforms]].forEach(([label,value])=>{
-     if(value){const item=document.createElement('span');item.textContent=label+': '+value;meta.appendChild(item);}
+    [['Developer',game.developer],['Release date',game.releaseDate],['Platforms',Array.isArray(game.platforms)?game.platforms.join(', '):game.platforms]].forEach(([label,value])=>{
+     if(value){const item=document.createElement('span');const name=document.createElement('strong');const detail=document.createElement('em');name.textContent=label;detail.textContent=value;item.append(name,detail);meta.appendChild(item);}
     });
    }
    tags.replaceChildren();
