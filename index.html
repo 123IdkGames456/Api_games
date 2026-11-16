@@ -29,10 +29,11 @@ h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;
 .detail-image{width:100%;height:clamp(190px,35vw,360px);object-fit:cover;display:block;background:#080b12}
 .detail-content{padding:clamp(22px,4vw,38px)}
 .detail-description{font-size:14px;color:#b3c0ce;line-height:1.85;margin:0;white-space:pre-wrap;max-width:680px}
-.detail-meta{display:grid;grid-template-columns:1fr;gap:0;margin-top:26px;border-top:1px solid #293846;color:#c3ccd5;font-size:12px}
-.detail-meta span{display:grid;grid-template-columns:minmax(105px,150px) minmax(0,1fr);align-items:start;column-gap:24px;padding:15px 4px;border-bottom:1px solid #293846;background:transparent;border-radius:0;line-height:1.6}
-.detail-meta strong{color:#8494a4;font-weight:500}
-.detail-meta em{color:#edf3f8;font-style:normal;text-align:left;overflow-wrap:anywhere}
+.detail-meta{display:grid;grid-template-columns:1fr;gap:9px;margin-top:26px;color:#c3ccd5;font-size:12px}
+.detail-meta span{display:grid;grid-template-columns:minmax(110px,150px) minmax(0,1fr);align-items:center;column-gap:22px;min-height:48px;padding:12px 16px;border:1px solid #293846;border-radius:8px;background:#141d27;line-height:1.6}
+.detail-meta strong{color:#91a2b3;font-weight:600;letter-spacing:.2px}
+.detail-meta em{display:flex;align-items:center;flex-wrap:wrap;gap:7px;color:#edf3f8;font-style:normal;text-align:left;overflow-wrap:anywhere}
+.detail-meta em i{display:inline-flex;padding:4px 9px;border:1px solid #35495b;border-radius:5px;background:#1b2a38;color:#dceaf5;font-style:normal;font-size:11px}
 .detail-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .detail-tags span{font-size:10px;color:#b8c6d2;padding:7px 10px;background:#1a2631;border:1px solid #2b3946;border-radius:5px}
 .detail-theme{display:inline-flex;padding:7px 11px;border:1px solid #23516a;border-radius:99px;color:#69d9ff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
@@ -131,7 +132,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
    meta.replaceChildren();
    if(game){
     [['Developer',game.developer],['Release date',game.releaseDate],['Platforms',Array.isArray(game.platforms)?game.platforms.join(', '):game.platforms]].forEach(([label,value])=>{
-     if(value){const item=document.createElement('span');const name=document.createElement('strong');const detail=document.createElement('em');name.textContent=label;detail.textContent=value;item.append(name,detail);meta.appendChild(item);}
+     if(value){const item=document.createElement('span');const name=document.createElement('strong');const detail=document.createElement('em');name.textContent=label;if(label==='Platforms'&&Array.isArray(value)){value.forEach(platform=>{const chip=document.createElement('i');chip.textContent=platform;detail.appendChild(chip);});}else{detail.textContent=value;}item.append(name,detail);meta.appendChild(item);}
     });
    }
    tags.replaceChildren();
