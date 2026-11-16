@@ -88,7 +88,9 @@ document.getElementById('year').textContent=new Date().getFullYear();
  const title=document.getElementById('detailTitle');
  const description=document.getElementById('detailDescription');
  const theme=document.getElementById('detailTheme');
- const open=document.getElementById('detailOpen');\n const meta=document.getElementById('detailMeta');\n const tags=document.getElementById('detailTags');
+ const open=document.getElementById('detailOpen');
+ const meta=document.getElementById('detailMeta');
+ const tags=document.getElementById('detailTags');
  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
  document.querySelectorAll('.game').forEach(async card=>{
   let data=null;
@@ -117,6 +119,14 @@ document.getElementById('year').textContent=new Date().getFullYear();
    title.textContent=game?.title||card.querySelector('h3').textContent;
    description.textContent=game?.description||card.querySelector('.info p').textContent;
    theme.textContent=game?.theme||card.querySelector('.label').textContent.split('·')[0].trim();
+   meta.replaceChildren();
+   if(game){
+    [['Developer',game.developer],['Release',game.releaseDate],['Platforms',Array.isArray(game.platforms)?game.platforms.join(', '):game.platforms]].forEach(([label,value])=>{
+     if(value){const item=document.createElement('span');item.textContent=label+': '+value;meta.appendChild(item);}
+    });
+   }
+   tags.replaceChildren();
+   (Array.isArray(game?.tags)?game.tags:[]).forEach(value=>{const item=document.createElement('span');item.textContent=value;tags.appendChild(item);});
    open.href=card.href;
    overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
    document.getElementById('detailBack').focus();
