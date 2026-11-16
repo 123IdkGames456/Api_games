@@ -2,7 +2,7 @@
   "title": "Five Nights at Jølle",
   "theme": "Horror",
   "status": "Under development",
-  "description": "Five nights at jølle,also known as fnaj is a fnaf gangame there you have to survive 5nights at jølle. can you survive? ",
+  "description": "Five Nights at Jølle, also known as FNAJ, is a FNAF fangame where you must survive five nights at Jølle. Can you make it through?",
   "image": "Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg",
   "page": "./",
   "developer": "API Games",
@@ -11,6 +11,7 @@
     "PC"
   ],
   "tags": [
-    "Horror"." First person"
+    "Horror",
+    "First person"
   ]
 }
