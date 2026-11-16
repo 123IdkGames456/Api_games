@@ -21,6 +21,23 @@ h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;
 .games{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px}
 .game{display:block;color:inherit;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.25s}
 .game:hover{transform:translateY(-5px);border-color:#168fbd;box-shadow:0 18px 48px #0008}.game:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.game{cursor:pointer}
+.detail-overlay{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,6,11,.82);backdrop-filter:blur(14px);opacity:0;transition:opacity .25s}
+.detail-overlay.open{display:flex;opacity:1}
+.detail-panel{width:min(100%,850px);max-height:min(90vh,760px);overflow:auto;background:#101925;border:1px solid #2b4055;border-radius:20px;box-shadow:0 30px 100px #000b;transform:translateY(12px);transition:transform .25s}
+.detail-overlay.open .detail-panel{transform:none}
+.detail-image{width:100%;height:clamp(190px,35vw,360px);object-fit:cover;display:block;background:#080b12}
+.detail-content{padding:clamp(20px,4vw,34px)}
+.detail-theme{display:inline-flex;padding:7px 11px;border:1px solid #23516a;border-radius:99px;color:#69d9ff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.detail-content h2{font-size:clamp(26px,5vw,40px);margin:15px 0 10px}
+.detail-description{color:#b3c0ce;line-height:1.8;font-size:14px;max-width:650px}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.detail-actions button,.detail-actions a{min-width:120px;padding:12px 18px;border-radius:9px;font:800 10px Inter,system-ui,sans-serif;letter-spacing:1.4px;text-align:center;text-decoration:none;cursor:pointer}
+.detail-back{border:1px solid #34495e;background:#172331;color:#eaf3ff}
+.detail-open{border:1px solid #19bdf2;background:#19bdf2;color:#06111a}
+.detail-actions button:hover,.detail-actions a:hover{filter:brightness(1.12)}
+body.modal-open{overflow:hidden}
+@media(max-width:600px){.detail-overlay{padding:12px}.detail-panel{border-radius:14px}.detail-content{padding:20px}.detail-actions button,.detail-actions a{flex:1}}
 .art{height:240px;position:relative;overflow:hidden;background:#101722}
 .art img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s}
 .game:hover .art img{transform:scale(1.04)}
@@ -48,6 +65,48 @@ footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid 
 </a>
 </section>
 </main>
+<div class="detail-overlay" id="gameDetail" aria-hidden="true">
+  <section class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <img class="detail-image" id="detailImage" src="" alt="">
+    <div class="detail-content">
+      <span class="detail-theme" id="detailTheme"></span>
+      <h2 id="detailTitle"></h2>
+      <p class="detail-description" id="detailDescription"></p>
+      <div class="detail-actions">
+        <button class="detail-back" id="detailBack" type="button">Back</button>
+        <a class="detail-open" id="detailOpen" href="#">Open Page</a>
+      </div>
+    </div>
+  </section>
+</div>
 <footer><span>© <span id="year"></span> API GAMES</span><span>ALL RIGHTS RESERVED</span></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+(()=>{
+ const overlay=document.getElementById('gameDetail');
+ const image=document.getElementById('detailImage');
+ const title=document.getElementById('detailTitle');
+ const description=document.getElementById('detailDescription');
+ const theme=document.getElementById('detailTheme');
+ const open=document.getElementById('detailOpen');
+ const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
+ document.querySelectorAll('.game').forEach(card=>{
+  card.addEventListener('click',event=>{
+   if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+   event.preventDefault();
+   const art=card.querySelector('.art img');
+   image.src=art.src;image.alt=art.alt;
+   title.textContent=card.querySelector('h3').textContent;
+   description.textContent=card.querySelector('.info p').textContent;
+   theme.textContent=card.querySelector('.label').textContent.split('·')[0].trim();
+   open.href=card.href;
+   overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
+   document.getElementById('detailBack').focus();
+  });
+ });
+ document.getElementById('detailBack').addEventListener('click',close);
+ overlay.addEventListener('click',event=>{if(event.target===overlay)close();});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&overlay.classList.contains('open'))close();});
+})();
+</script>
 </body></html>
