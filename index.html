@@ -1,150 +1,116 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080b12">
-<title>API Games</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0b">
+<meta name="description" content="API Games — independent games and worlds. Discover Five Nights at Jølle.">
+<title>API Games — Enter the worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#080b12;--panel:#111925;--line:#253548;--muted:#a8b5c5;--text:#f4f8ff;--blue:#19bdf2}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
-header{height:76px;max-width:1240px;margin:auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:900;letter-spacing:3px;font-size:21px}.brand span{color:var(--blue)}.nav{font-size:11px;color:#9aaabd;letter-spacing:1.5px}
-main{max-width:1240px;margin:auto;padding:20px 30px 90px}
-.hero{height:clamp(330px,43vw,510px);position:relative;overflow:hidden;border-radius:22px;background:#080b12}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(8,11,18,.10) 42%,rgba(8,11,18,.05) 75%,var(--bg) 100%),linear-gradient(90deg,rgba(8,11,18,.38),transparent 65%);pointer-events:none}
-.hero-title{position:absolute;z-index:1;left:clamp(24px,6vw,76px);bottom:40px}
-.eyebrow{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:3px;text-transform:uppercase}
-h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0 0;letter-spacing:-2px;text-shadow:0 4px 25px #000}
-.intro{max-width:660px;color:#b3c0ce;line-height:1.8;font-size:14px;margin:22px 0 0 4px}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin:54px 0 20px}
-h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;margin-left:22px;background:linear-gradient(90deg,#263b50,transparent)}
-.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px}
-.game{display:block;color:inherit;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.25s}
-.game:hover{transform:translateY(-3px);border-color:#36566d;box-shadow:0 14px 34px #0006}.game:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
-.game{cursor:pointer}
-.detail-overlay{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,6,11,.82);backdrop-filter:blur(14px);opacity:0;transition:opacity .25s}
-.detail-overlay.open{display:flex;opacity:1}
-.detail-panel{width:min(100%,850px);max-height:min(90vh,760px);overflow:auto;background:#101720;border:1px solid #293846;border-radius:14px;box-shadow:0 30px 100px #000b;transform:translateY(12px);transition:transform .25s}
-.detail-overlay.open .detail-panel{transform:none}
-.detail-image{width:100%;height:clamp(190px,35vw,360px);object-fit:cover;display:block;background:#080b12}
-.detail-content{padding:clamp(22px,4vw,38px)}
-.detail-description{font-size:14px;color:#b3c0ce;line-height:1.85;margin:0;white-space:pre-wrap;max-width:680px}
-.detail-meta{display:grid;grid-template-columns:1fr;gap:9px;margin-top:26px;color:#c3ccd5;font-size:12px}
-.detail-meta span{display:grid;grid-template-columns:minmax(110px,150px) minmax(0,1fr);align-items:center;column-gap:22px;min-height:48px;padding:12px 16px;border:1px solid #293846;border-radius:8px;background:#141d27;line-height:1.6}
-.detail-meta strong{color:#91a2b3;font-weight:600;letter-spacing:.2px}
-.detail-meta em{display:flex;align-items:center;flex-wrap:wrap;gap:7px;color:#edf3f8;font-style:normal;text-align:left;overflow-wrap:anywhere}
-.detail-meta em i{display:inline-flex;padding:4px 9px;border:1px solid #35495b;border-radius:5px;background:#1b2a38;color:#dceaf5;font-style:normal;font-size:11px}
-.detail-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.detail-tags span{font-size:10px;color:#b8c6d2;padding:7px 10px;background:#1a2631;border:1px solid #2b3946;border-radius:5px}
-.detail-theme{display:inline-flex;padding:7px 11px;border:1px solid #23516a;border-radius:99px;color:#69d9ff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-.detail-content h2{font-size:clamp(26px,5vw,40px);margin:15px 0 10px}
-.detail-description{color:#b3c0ce;line-height:1.8;font-size:14px;max-width:650px}
-.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
-.detail-actions button,.detail-actions a{min-width:120px;padding:12px 18px;border-radius:9px;font:800 10px Inter,system-ui,sans-serif;letter-spacing:1.4px;text-align:center;text-decoration:none;cursor:pointer}
-.detail-back{border:1px solid #34495e;background:#172331;color:#eaf3ff}
-.detail-open{border:1px solid #19bdf2;background:#19bdf2;color:#06111a}
-.detail-actions button:hover,.detail-actions a:hover{filter:brightness(1.12)}
-body.modal-open{overflow:hidden}
-@media(max-width:600px){.detail-overlay{padding:12px}.detail-panel{border-radius:14px}.detail-content{padding:20px}.detail-meta span{grid-template-columns:1fr;row-gap:5px;padding:13px 2px}.detail-meta em{padding-left:0}.detail-actions button,.detail-actions a{flex:1}}
-.art{height:240px;position:relative;overflow:hidden;background:#101722}
-.art img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s}
-.game:hover .art img{transform:scale(1.04)}
-.art:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(0deg,var(--panel),transparent)}
-.info{position:relative;padding:0 24px 25px;margin-top:-3px}
-.label{font-size:9px;color:var(--blue);font-weight:800;letter-spacing:2px;text-transform:uppercase}
-h3{font-size:23px;margin:8px 0}.info p{color:var(--muted);font-size:13px;line-height:1.7;margin:0;max-width:450px}
-.open{display:inline-block;margin-top:17px;color:#68d9ff;font-size:10px;font-weight:800;letter-spacing:1.5px}
-footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid #1b2938;color:#77879a;font-size:10px;letter-spacing:1.4px;display:flex;justify-content:space-between}
-@media(max-width:650px){header{padding:0 20px}.nav{display:none}main{padding:12px 15px 65px}.hero{height:360px;border-radius:15px}.hero img{object-position:54% center}.hero-title{left:23px;bottom:34px}.intro{font-size:13px;margin-top:16px}.section-head{margin-top:42px}.art{height:205px}footer{padding:22px 18px;gap:10px;flex-wrap:wrap}}
-</style></head>
+:root{color-scheme:dark;--ink:#e9e7df;--muted:#a7a49a;--blue:#8fdcf0;--night:#090a0b;--paper:#171714;--progress:0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:#47443b #090a0b}
+body{margin:0;background:var(--night);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+a{color:inherit}
+.topbar{position:absolute;z-index:10;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:28px clamp(22px,6vw,86px);border-bottom:1px solid #ffffff0b}
+.brand{font-size:13px;font-weight:800;letter-spacing:3px;text-decoration:none}.brand span{color:var(--blue)}
+.top-note{font-size:9px;letter-spacing:3px;color:#8e908f;text-transform:uppercase}
+.intro{min-height:100svh;position:relative;display:flex;align-items:center;padding:130px clamp(24px,9vw,140px) 100px;background:radial-gradient(ellipse at 80% 30%,#1a2529 0%,#0c1012 35%,#090a0b 75%);isolation:isolate;overflow:hidden}
+.intro:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,transparent 30%,#c1e9f006 60%,transparent 80%);opacity:.8}
+.intro:after{content:"";position:absolute;left:9vw;right:9vw;bottom:48px;height:1px;background:linear-gradient(90deg,transparent,#777b7766,transparent)}
+.intro-inner{width:min(1120px,100%);margin:auto;transition:opacity .12s linear,transform .12s linear;opacity:calc(1 - var(--intro-fade, 0));transform:translateY(calc(var(--intro-fade, 0)*-28px))}
+.kicker{display:flex;align-items:center;gap:12px;color:#8caaa9;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase}
+.kicker:before{content:"";width:28px;height:1px;background:#8caaa9}
+h1{font-size:clamp(54px,10vw,126px);line-height:.88;letter-spacing:-.075em;font-weight:700;margin:27px 0 0;max-width:950px}
+h1 span{display:block;color:#8e9694;font-weight:500}
+.intro-copy{max-width:590px;margin:32px 0 0;color:#a9aaa5;font-size:clamp(14px,1.35vw,17px);line-height:1.9}
+.scroll-cue{display:inline-flex;align-items:center;gap:14px;margin-top:46px;color:#d2d3cd;text-decoration:none;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+.scroll-cue .arrow{width:35px;height:35px;border:1px solid #ffffff2a;border-radius:50%;display:grid;place-items:center;color:var(--blue);font-size:17px;transition:transform .3s,border-color .3s}
+.scroll-cue:hover .arrow{transform:translateY(4px);border-color:#8fdcf0aa}
+.intro-index{position:absolute;right:clamp(22px,6vw,86px);bottom:76px;color:#525955;font-size:9px;letter-spacing:2px}
+.feature{position:relative;min-height:125svh;display:flex;align-items:flex-end;overflow:hidden;background:#11110f;isolation:isolate}
+.feature-backdrop{position:absolute;inset:-5%;z-index:-2;background:url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center 42%/cover no-repeat;filter:saturate(.72) contrast(1.07);transform:scale(calc(1.06 + var(--feature-zoom, 0)*.04));transition:filter .4s}
+.feature:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#11110f 0%,#11110fef 5%,#11110f8a 38%,#11110f25 72%,#11110f99 100%),linear-gradient(90deg,#11110fdd 0%,#11110f88 34%,transparent 78%),linear-gradient(180deg,#090a0b 0%,transparent 18%)}
+.feature:after{content:"";position:absolute;left:7vw;right:7vw;bottom:42px;height:1px;background:#a7a18d35}
+.feature-content{width:min(1120px,100%);margin:0 auto;padding:150px clamp(24px,7vw,86px) 115px;transition:opacity .3s,transform .3s}
+.feature-stamp{display:inline-block;padding:9px 12px;border:1px solid #d6cbb544;color:#b8b09e;font-size:9px;letter-spacing:3px;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:24px;background:#14130f44;backdrop-filter:blur(4px)}
+.feature h2{font-family:"Special Elite",Georgia,serif;font-weight:400;font-size:clamp(58px,10vw,122px);line-height:.88;letter-spacing:-.045em;margin:0;color:#f0eadc;text-shadow:0 8px 40px #000b}
+.feature h2 small{display:block;font:600 10px Inter,Arial,sans-serif;letter-spacing:6px;color:#b8b09e;margin-top:26px}
+.feature-copy{max-width:550px;color:#c1baaa;font-size:15px;line-height:1.9;margin:28px 0 0}
+.feature-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px}
+.enter{display:inline-flex;align-items:center;gap:17px;padding:16px 22px;background:#d6ccb5;color:#1c1a15;border:1px solid #e8ddc4;border-radius:3px;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
+.enter span{font-size:18px;font-weight:400}.enter:hover{transform:translateY(-3px);background:#f0e7d3;box-shadow:0 14px 35px #0008}
+.more{display:inline-flex;align-items:center;padding:16px 18px;border:1px solid #b7ad963f;background:#17161166;color:#d0c8b8;text-decoration:none;border-radius:3px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:background .25s}
+.more:hover{background:#27251f}
+.feature-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:35px;color:#928b7b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.feature-meta span{display:flex;align-items:center;gap:9px}.feature-meta span:before{content:"";width:4px;height:4px;background:#887d66;border-radius:50%}
+.endcap{min-height:52vh;display:grid;place-items:center;text-align:center;padding:90px 24px;background:linear-gradient(180deg,#11110f,#090a0b)}
+.endcap-inner{max-width:660px}.endcap .kicker{justify-content:center}.endcap h2{font-size:clamp(30px,5vw,56px);letter-spacing:-.05em;margin:24px 0 14px}.endcap p{color:#92938d;font-size:13px;line-height:1.8;margin:0}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px clamp(22px,6vw,86px);border-top:1px solid #ffffff12;color:#626660;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+@media(max-width:700px){.topbar{padding:22px}.top-note{font-size:8px;letter-spacing:1.5px}.intro{padding:120px 24px 90px;min-height:92svh}.intro:after{left:24px;right:24px}.intro-index{right:24px;bottom:68px}.intro-copy{font-size:14px}.feature{min-height:112svh}.feature-backdrop{background-position:58% center}.feature:before{background:linear-gradient(0deg,#11110f 0%,#11110feF 9%,#11110f8c 45%,#11110f3a 74%,#11110f99 100%),linear-gradient(90deg,#11110f88,transparent 100%),linear-gradient(180deg,#090a0b 0%,transparent 18%)}.feature-content{padding:125px 24px 95px}.feature h2{font-size:clamp(54px,15vw,82px)}.feature-copy{font-size:14px}.feature-meta{gap:14px;font-size:8px}.enter,.more{flex:1;justify-content:center}.feature:after{left:24px;right:24px}footer{padding:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
 <body>
-<header><div class="brand">API <span>GAMES</span></div><div class="nav">INDEPENDENT GAME STUDIO</div></header>
+<header class="topbar"><a class="brand" href="./" aria-label="API Games home">API <span>GAMES</span></a><div class="top-note">Independent game worlds</div></header>
 <main>
-<section class="hero">
-<img src="apigamesthumbnail.png" alt="API Games banner">
-<div class="hero-title"><div class="eyebrow">Welcome to API Games</div><h1>Games & projects</h1></div>
+<section class="intro" id="intro">
+<div class="intro-inner" id="introInner">
+<div class="kicker">Welcome to API Games</div>
+<h1>Stories worth<br><span>stepping into.</span></h1>
+<p class="intro-copy">Vi lager spill, verdener og historier du kan utforske. Hvert prosjekt har sin egen stemning — og dette er bare starten.</p>
+<a class="scroll-cue" href="#fnaj"><span class="arrow" aria-hidden="true">↓</span> Scroll to discover</a>
+</div>
+<div class="intro-index">01 — THE WORLDS</div>
 </section>
-<p class="intro">Velkommen til API Games. Her finner du spillene og prosjektene vi lager. Utforsk, følg utviklingen og se hva som kommer videre.</p>
-<div class="section-head"><h2>Games</h2><div class="section-line"></div></div>
-<section class="games">
-<a class="game" href="games/FNAJ/" data-config="games/FNAJ/game.json">
-<div class="art"><img src="games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg" alt="Five Nights at Jølle artwork" loading="lazy"></div>
-<div class="info"><div class="label">Horror · Under development</div><h3>Five Nights at Jølle</h3><p>Utforsk verdenen bak Five Nights at Jølle. Finn informasjon, bilder og oppdateringer om spillet.</p><span class="open">VIS SPILLET ↗</span></div>
-</a>
+<section class="feature" id="fnaj" aria-labelledby="fnajTitle">
+<div class="feature-backdrop" aria-hidden="true"></div>
+<div class="feature-content">
+<div class="feature-stamp">Featured world · 01</div>
+<h2 id="fnajTitle">Five Nights<br>at Jølle<small>FNAJ · A HORROR EXPERIENCE</small></h2>
+<p class="feature-copy">Fem netter. Et sted du kjenner — men som ikke føles helt riktig lenger. Oppdag Five Nights at Jølle, et horror-prosjekt under utvikling fra API Games.</p>
+<div class="feature-actions">
+<a class="enter" href="games/FNAJ/home/">Enter FNAJ <span aria-hidden="true">↗</span></a>
+<a class="more" href="games/FNAJ/">Explore the project</a>
+</div>
+<div class="feature-meta"><span>Horror</span><span>Under development</span><span>PC</span></div>
+</div>
+</section>
+<section class="endcap">
+<div class="endcap-inner">
+<div class="kicker">More worlds are coming</div>
+<h2>This is only the beginning.</h2>
+<p>Flere spill og univers kan legges til her senere. Hvert nytt prosjekt får sin egen seksjon — med en sømløs overgang fra én verden til den neste.</p>
+</div>
 </section>
 </main>
-<div class="detail-overlay" id="gameDetail" aria-hidden="true">
-  <section class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
-    <img class="detail-image" id="detailImage" src="" alt="">
-    <div class="detail-content">
-      <span class="detail-theme" id="detailTheme"></span>
-      <h2 id="detailTitle"></h2>
-      <p class="detail-description" id="detailDescription"></p>
-      <div class="detail-meta" id="detailMeta"></div>
-      <div class="detail-tags" id="detailTags"></div>
-      <div class="detail-actions">
-        <button class="detail-back" id="detailBack" type="button">Back</button>
-        <a class="detail-open" id="detailOpen" href="#">Open Page</a>
-      </div>
-    </div>
-  </section>
-</div>
-<footer><span>© <span id="year"></span> API GAMES</span><span>ALL RIGHTS RESERVED</span></footer>
+<footer><span>© <span id="year"></span> API Games</span><span>Made to be explored</span></footer>
 <script>
+(()=> {
+const root=document.documentElement;
+const intro=document.getElementById('intro');
+const feature=document.getElementById('fnaj');
+let ticking=false;
+function update(){
+ const vh=window.innerHeight||1;
+ const introRect=intro.getBoundingClientRect();
+ const fade=Math.min(1,Math.max(0,(vh-introRect.bottom)/(vh*.72)));
+ root.style.setProperty('--intro-fade',fade.toFixed(3));
+ const featureRect=feature.getBoundingClientRect();
+ const progress=Math.min(1,Math.max(0,(vh-featureRect.top)/(vh+featureRect.height*.45)));
+ root.style.setProperty('--feature-zoom',progress.toFixed(3));
+ ticking=false;
+}
+function onScroll(){if(!ticking){requestAnimationFrame(update);ticking=true;}}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',update);
 document.getElementById('year').textContent=new Date().getFullYear();
-(()=>{
- const overlay=document.getElementById('gameDetail');
- const image=document.getElementById('detailImage');
- const title=document.getElementById('detailTitle');
- const description=document.getElementById('detailDescription');
- const theme=document.getElementById('detailTheme');
- const open=document.getElementById('detailOpen');
- const meta=document.getElementById('detailMeta');
- const tags=document.getElementById('detailTags');
- const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');};
- document.querySelectorAll('.game').forEach(async card=>{
-  let data=null;
-  try{
-   const configUrl=new URL(card.dataset.config,location.href);
-   const response=await fetch(configUrl,{cache:"no-store"});
-   if(!response.ok)throw new Error('Could not load game metadata');
-   data=await response.json();
-   card.__gameData=data;
-   const imageUrl=new URL(data.image,configUrl).href;
-   const pageUrl=new URL(data.page||'./',configUrl).href;
-   const art=card.querySelector('.art img');
-   art.src=imageUrl;
-   art.alt=data.title+' artwork';
-   card.querySelector('h3').textContent=data.title;
-   card.querySelector('.label').textContent=[data.theme,data.status].filter(Boolean).join(' · ');
-   card.querySelector('.info p').textContent=data.description;
-   card.href=pageUrl;
-  }catch(error){console.warn('Game metadata could not be loaded:',error);}
-  card.addEventListener('click',event=>{
-   if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-   event.preventDefault();
-   const game=card.__gameData;
-   const art=card.querySelector('.art img');
-   image.src=art.src;image.alt=art.alt;
-   title.textContent=game?.title||card.querySelector('h3').textContent;
-   description.textContent=game?.description||card.querySelector('.info p').textContent;
-   theme.textContent=game?.theme||card.querySelector('.label').textContent.split('·')[0].trim();
-   meta.replaceChildren();
-   if(game){
-    [['Developer',game.developer],['Release date',game.releaseDate],['Platforms',Array.isArray(game.platforms)?game.platforms.join(', '):game.platforms]].forEach(([label,value])=>{
-     if(value){const item=document.createElement('span');const name=document.createElement('strong');const detail=document.createElement('em');name.textContent=label;if(label==='Platforms'&&Array.isArray(value)){value.forEach(platform=>{const chip=document.createElement('i');chip.textContent=platform;detail.appendChild(chip);});}else{detail.textContent=value;}item.append(name,detail);meta.appendChild(item);}
-    });
-   }
-   tags.replaceChildren();
-   (Array.isArray(game?.tags)?game.tags:[]).forEach(value=>{const item=document.createElement('span');item.textContent=value;tags.appendChild(item);});
-   open.href=card.href;
-   overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
-   document.getElementById('detailBack').focus();
-  });
- });
- document.getElementById('detailBack').addEventListener('click',close);
- overlay.addEventListener('click',event=>{if(event.target===overlay)close();});
- document.addEventListener('keydown',event=>{if(event.key==='Escape'&&overlay.classList.contains('open'))close();});
+update();
 })();
 </script>
-</body></html>
+</body>
+</html>
