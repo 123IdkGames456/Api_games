@@ -18,7 +18,7 @@ body.api-main-page-leaving{opacity:0!important;transition:opacity .28s ease!impo
 @media(max-width:760px){.api-main-page-back{top:72px!important;left:12px!important;height:32px!important;padding:0 10px!important;gap:6px!important}.api-back-label{font-size:8px!important}}
 </style>
 </head>
-<body><header><div class="site-nav"><a class="site-logo" href="../home/">FNAJ <span>FIVE NIGHTS AT JØLLE</span></a><div class="site-nav-wrap"><nav><div class="universal-dropdown" id="currentDropdown"><button class="universal-dropdown-toggle" type="button" aria-expanded="false">Game/home</button><div class="universal-dropdown-menu"><small>Home</small><a href="../home/">Home/top</a><a href="../home/#project">Home/project</a><a href="../home/#contact">Home/Contact us</a><div class="nav-separator"></div><small>Game</small><a href="../game/">Game/home</a><div class="nav-separator"></div><small>Gallery</small><a href="../gallery/#images">Gallery/Images</a><a href="../gallery/#videos">Gallery/Videos</a><a href="../gallery/#audio">Gallery/Audio</a></div></div></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Game/home</button></div></div></header><main id="game" class="hero">
+<body><main id="game" class="hero">
 <div class="label">Five Nights at Jølle / The Game</div>
 <h1>The Game</h1>
 <p>A FNAF fan game aiming for realism and scariness. Development is ongoing, and the world is still being built.</p>
@@ -33,8 +33,9 @@ Testing reports have to be sent through <strong>TikTok DMs</strong> or in the <s
 If you have any problems, reach us at <strong>fivegoonsatjolle@gmail.com</strong>.
 </div>
 </main>
-<script id="oldFadeScript">document.addEventListener("DOMContentLoaded",()=>requestAnimationFrame(()=>document.body.classList.add("page-ready")));window.addEventListener("pageshow",()=>document.body.classList.add("page-ready"));document.addEventListener("click",e=>{const link=e.target.closest("a");if(!link||link.target==="_blank"||link.hasAttribute("download"))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;e.preventDefault();document.body.classList.remove("page-ready");document.body.classList.add("page-leaving");setTimeout(()=>location.href=url.href,420)});</script><script src="../dropdown/script.js"></script>
+<script id="oldFadeScript">document.addEventListener("DOMContentLoaded",()=>requestAnimationFrame(()=>document.body.classList.add("page-ready")));window.addEventListener("pageshow",()=>document.body.classList.add("page-ready"));document.addEventListener("click",e=>{const link=e.target.closest("a");if(!link||link.target==="_blank"||link.hasAttribute("download"))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;e.preventDefault();document.body.classList.remove("page-ready");document.body.classList.add("page-leaving");setTimeout(()=>location.href=url.href,420)});</script>
 <a class="api-main-page-back" id="api-main-page-back" href="https://123idkgames456.github.io/Api_games/" aria-label="Return to API Games main menu"><span class="api-back-icon" aria-hidden="true">←</span><span class="api-back-label">API Games</span></a>
 
+<script src="../shared/header.js?v=1"></script>
 </body>
 </html>
