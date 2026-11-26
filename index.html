@@ -3,110 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090a0b">
-<meta name="description" content="API Games — independent games and worlds. Discover Five Nights at Jølle.">
-<title>API Games — Enter the worlds</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#f4f7fb">
+<meta name="description" content="API Games — spill, prosjekter og verdener.">
+<title>API Games</title>
 <style>
-:root{color-scheme:dark;--ink:#e9e7df;--muted:#a7a49a;--blue:#8fdcf0;--night:#090a0b;--paper:#171714;--progress:0}
+:root{--darkness:0;--lightness:100%;--bg:color-mix(in srgb,#f4f7fb var(--lightness),#181713 calc(100% - var(--lightness)));--text:color-mix(in srgb,#142033 var(--lightness),#e8e2d4 calc(100% - var(--lightness)));--muted:color-mix(in srgb,#657286 var(--lightness),#aaa18f calc(100% - var(--lightness)));--line:color-mix(in srgb,#d9e2ec var(--lightness),#464034 calc(100% - var(--lightness)));--accent:color-mix(in srgb,#078fc2 var(--lightness),#b7a98b calc(100% - var(--lightness)))}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scrollbar-color:#47443b #090a0b}
-body{margin:0;background:var(--night);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
-a{color:inherit}
-.topbar{position:absolute;z-index:10;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:28px clamp(22px,6vw,86px);border-bottom:1px solid #ffffff0b}
-.brand{font-size:13px;font-weight:800;letter-spacing:3px;text-decoration:none}.brand span{color:var(--blue)}
-.top-note{font-size:9px;letter-spacing:3px;color:#8e908f;text-transform:uppercase}
-.intro{min-height:100svh;position:relative;display:flex;align-items:center;padding:130px clamp(24px,9vw,140px) 100px;background:radial-gradient(ellipse at 80% 30%,#1a2529 0%,#0c1012 35%,#090a0b 75%);isolation:isolate;overflow:hidden}
-.intro:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,transparent 30%,#c1e9f006 60%,transparent 80%);opacity:.8}
-.intro:after{content:"";position:absolute;left:9vw;right:9vw;bottom:48px;height:1px;background:linear-gradient(90deg,transparent,#777b7766,transparent)}
-.intro-inner{width:min(1120px,100%);margin:auto;transition:opacity .12s linear,transform .12s linear;opacity:calc(1 - var(--intro-fade, 0));transform:translateY(calc(var(--intro-fade, 0)*-28px))}
-.kicker{display:flex;align-items:center;gap:12px;color:#8caaa9;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase}
-.kicker:before{content:"";width:28px;height:1px;background:#8caaa9}
-h1{font-size:clamp(54px,10vw,126px);line-height:.88;letter-spacing:-.075em;font-weight:700;margin:27px 0 0;max-width:950px}
-h1 span{display:block;color:#8e9694;font-weight:500}
-.intro-copy{max-width:590px;margin:32px 0 0;color:#a9aaa5;font-size:clamp(14px,1.35vw,17px);line-height:1.9}
-.scroll-cue{display:inline-flex;align-items:center;gap:14px;margin-top:46px;color:#d2d3cd;text-decoration:none;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
-.scroll-cue .arrow{width:35px;height:35px;border:1px solid #ffffff2a;border-radius:50%;display:grid;place-items:center;color:var(--blue);font-size:17px;transition:transform .3s,border-color .3s}
-.scroll-cue:hover .arrow{transform:translateY(4px);border-color:#8fdcf0aa}
-.intro-index{position:absolute;right:clamp(22px,6vw,86px);bottom:76px;color:#525955;font-size:9px;letter-spacing:2px}
-.feature{position:relative;min-height:125svh;display:flex;align-items:flex-end;overflow:hidden;background:#11110f;isolation:isolate}
-.feature-backdrop{position:absolute;inset:-5%;z-index:-2;background:url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center 42%/cover no-repeat;filter:saturate(.72) contrast(1.07);transform:scale(calc(1.06 + var(--feature-zoom, 0)*.04));transition:filter .4s}
-.feature:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#11110f 0%,#11110fef 5%,#11110f8a 38%,#11110f25 72%,#11110f99 100%),linear-gradient(90deg,#11110fdd 0%,#11110f88 34%,transparent 78%),linear-gradient(180deg,#090a0b 0%,transparent 18%)}
-.feature:after{content:"";position:absolute;left:7vw;right:7vw;bottom:42px;height:1px;background:#a7a18d35}
-.feature-content{width:min(1120px,100%);margin:0 auto;padding:150px clamp(24px,7vw,86px) 115px;transition:opacity .3s,transform .3s}
-.feature-stamp{display:inline-block;padding:9px 12px;border:1px solid #d6cbb544;color:#b8b09e;font-size:9px;letter-spacing:3px;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:24px;background:#14130f44;backdrop-filter:blur(4px)}
-.feature h2{font-family:"Special Elite",Georgia,serif;font-weight:400;font-size:clamp(58px,10vw,122px);line-height:.88;letter-spacing:-.045em;margin:0;color:#f0eadc;text-shadow:0 8px 40px #000b}
-.feature h2 small{display:block;font:600 10px Inter,Arial,sans-serif;letter-spacing:6px;color:#b8b09e;margin-top:26px}
-.feature-copy{max-width:550px;color:#c1baaa;font-size:15px;line-height:1.9;margin:28px 0 0}
-.feature-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px}
-.enter{display:inline-flex;align-items:center;gap:17px;padding:16px 22px;background:#d6ccb5;color:#1c1a15;border:1px solid #e8ddc4;border-radius:3px;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
-.enter span{font-size:18px;font-weight:400}.enter:hover{transform:translateY(-3px);background:#f0e7d3;box-shadow:0 14px 35px #0008}
-.more{display:inline-flex;align-items:center;padding:16px 18px;border:1px solid #b7ad963f;background:#17161166;color:#d0c8b8;text-decoration:none;border-radius:3px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:background .25s}
-.more:hover{background:#27251f}
-.feature-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:35px;color:#928b7b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
-.feature-meta span{display:flex;align-items:center;gap:9px}.feature-meta span:before{content:"";width:4px;height:4px;background:#887d66;border-radius:50%}
-.endcap{min-height:52vh;display:grid;place-items:center;text-align:center;padding:90px 24px;background:linear-gradient(180deg,#11110f,#090a0b)}
-.endcap-inner{max-width:660px}.endcap .kicker{justify-content:center}.endcap h2{font-size:clamp(30px,5vw,56px);letter-spacing:-.05em;margin:24px 0 14px}.endcap p{color:#92938d;font-size:13px;line-height:1.8;margin:0}
-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px clamp(22px,6vw,86px);border-top:1px solid #ffffff12;color:#626660;font-size:9px;letter-spacing:2px;text-transform:uppercase}
-@media(max-width:700px){.topbar{padding:22px}.top-note{font-size:8px;letter-spacing:1.5px}.intro{padding:120px 24px 90px;min-height:92svh}.intro:after{left:24px;right:24px}.intro-index{right:24px;bottom:68px}.intro-copy{font-size:14px}.feature{min-height:112svh}.feature-backdrop{background-position:58% center}.feature:before{background:linear-gradient(0deg,#11110f 0%,#11110feF 9%,#11110f8c 45%,#11110f3a 74%,#11110f99 100%),linear-gradient(90deg,#11110f88,transparent 100%),linear-gradient(180deg,#090a0b 0%,transparent 18%)}.feature-content{padding:125px 24px 95px}.feature h2{font-size:clamp(54px,15vw,82px)}.feature-copy{font-size:14px}.feature-meta{gap:14px;font-size:8px}.enter,.more{flex:1;justify-content:center}.feature:after{left:24px;right:24px}footer{padding:24px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;transition:background-color .15s,color .15s;overflow-x:hidden}
+header{height:76px;max-width:1240px;margin:auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:3px;font-size:21px;text-decoration:none;color:var(--text)}.brand span{color:var(--accent)}
+.nav{font-size:10px;color:var(--muted);letter-spacing:2px}
+main{max-width:1240px;margin:auto;padding:20px 30px 90px}
+.hero{height:clamp(330px,43vw,510px);position:relative;overflow:hidden;border-radius:22px;background:#e4edf5}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#f4f7fb 0%,#f4f7fb05 55%,#f4f7fb55 100%),linear-gradient(90deg,#f4f7fb66,transparent 70%);pointer-events:none;opacity:calc(1 - var(--darkness))}
+.hero-title{position:absolute;z-index:1;left:clamp(24px,6vw,76px);bottom:40px;color:#132033}
+.eyebrow{font-size:10px;color:#078fc2;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0 0;letter-spacing:-2px}
+.intro{max-width:660px;color:var(--muted);line-height:1.85;font-size:14px;margin:22px 0 0 4px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:54px 0 20px}
+h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;margin-left:22px;background:linear-gradient(90deg,var(--line),transparent)}
+.transition-space{height:24vh;min-height:130px;position:relative;display:grid;place-items:center;color:var(--muted);font-size:9px;letter-spacing:3px;text-transform:uppercase}
+.transition-space:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(var(--line),transparent)}
+.feature{position:relative;min-height:110vh;margin:0 calc(-1 * clamp(0px,3vw,30px));display:flex;align-items:flex-end;overflow:hidden;background:#181713;color:#e8e2d4;border-radius:20px}
+.feature-bg{position:absolute;inset:-3%;background:url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center 42%/cover no-repeat;filter:saturate(.72) contrast(1.06);transform:scale(1.04);transition:transform .3s}
+.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#181713 0%,#181713ef 9%,#18171388 43%,#18171322 78%,#18171377 100%),linear-gradient(90deg,#181713cc 0%,#18171366 40%,transparent 85%);z-index:1}
+.feature-content{position:relative;z-index:2;width:min(1120px,100%);margin:auto;padding:150px clamp(24px,7vw,86px) 100px}
+.stamp{display:inline-block;border:1px solid #b7a98b55;padding:8px 12px;color:#b7a98b;font-size:9px;letter-spacing:3px;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:24px}
+.feature h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(58px,10vw,116px);line-height:.88;letter-spacing:-3px;margin:0;color:#eee8d9;text-shadow:0 5px 30px #000}
+.feature h2 small{display:block;font:600 10px Inter,Arial,sans-serif;letter-spacing:6px;color:#a39b89;margin-top:26px}
+.feature-copy{max-width:570px;margin:28px 0 0;color:#c0baaa;line-height:1.85;font-size:15px}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:13px;padding:14px 19px;text-decoration:none;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:800;border:1px solid #716955;background:#d6ccb5;color:#211f1a;border-radius:4px;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0008;background:#eee5d1}
+.btn.secondary{background:#24221c;color:#c9c1b0;border-color:#514c3f}.btn.secondary:hover{background:#302d25;color:#eee}
+.feature-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#918a7b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.feature-meta span:before{content:"•";margin-right:9px;color:#b7a98b}
+footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:1.4px;display:flex;justify-content:space-between}
+@media(max-width:650px){header{padding:0 20px}.nav{font-size:8px;letter-spacing:1px}main{padding:12px 15px 65px}.hero{height:360px;border-radius:15px}.hero img{object-position:54% center}.hero-title{left:23px;bottom:34px}.intro{font-size:13px;margin-top:16px}.section-head{margin-top:42px}.transition-space{height:18vh}.feature{min-height:100svh;border-radius:14px;margin:0 -5px}.feature-bg{background-position:58% center}.feature:before{background:linear-gradient(0deg,#181713 0%,#181713ef 12%,#18171388 48%,#18171335 78%,#18171388 100%),linear-gradient(90deg,#18171388,transparent)}.feature-content{padding:125px 23px 85px}.feature h2{font-size:clamp(52px,14vw,82px)}.feature-copy{font-size:14px}.actions{gap:9px}.btn{flex:1;justify-content:center;padding:14px 12px;font-size:9px}footer{padding:22px 18px;gap:10px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
-<header class="topbar"><a class="brand" href="./" aria-label="API Games home">API <span>GAMES</span></a><div class="top-note">Independent game worlds</div></header>
+<header><a class="brand" href="./">API <span>GAMES</span></a><div class="nav">INDEPENDENT GAME STUDIO</div></header>
 <main>
-<section class="intro" id="intro">
-<div class="intro-inner" id="introInner">
-<div class="kicker">Welcome to API Games</div>
-<h1>Stories worth<br><span>stepping into.</span></h1>
-<p class="intro-copy">Vi lager spill, verdener og historier du kan utforske. Hvert prosjekt har sin egen stemning — og dette er bare starten.</p>
-<a class="scroll-cue" href="#fnaj"><span class="arrow" aria-hidden="true">↓</span> Scroll to discover</a>
-</div>
-<div class="intro-index">01 — THE WORLDS</div>
+<section class="hero" id="hero">
+<img src="apigamesthumbnail.png" alt="API Games banner">
+<div class="hero-title"><div class="eyebrow">Welcome to API Games</div><h1>Games & projects</h1></div>
 </section>
-<section class="feature" id="fnaj" aria-labelledby="fnajTitle">
-<div class="feature-backdrop" aria-hidden="true"></div>
+<p class="intro" id="intro">Velkommen til API Games. Her finner du spillene og prosjektene vi lager. Utforsk, følg utviklingen og se hva som kommer videre.</p>
+<div class="section-head"><h2>Games</h2><div class="section-line"></div></div>
+<div class="transition-space" aria-hidden="true">Keep scrolling</div>
+<section class="feature" id="fnaj">
+<div class="feature-bg" aria-hidden="true"></div>
 <div class="feature-content">
-<div class="feature-stamp">Featured world · 01</div>
-<h2 id="fnajTitle">Five Nights<br>at Jølle<small>FNAJ · A HORROR EXPERIENCE</small></h2>
-<p class="feature-copy">Fem netter. Et sted du kjenner — men som ikke føles helt riktig lenger. Oppdag Five Nights at Jølle, et horror-prosjekt under utvikling fra API Games.</p>
-<div class="feature-actions">
-<a class="enter" href="games/FNAJ/home/">Enter FNAJ <span aria-hidden="true">↗</span></a>
-<a class="more" href="games/FNAJ/">Explore the project</a>
+<div class="stamp">Featured game · 01</div>
+<h2>Five Nights<br>at Jølle<small>FNAJ · HORROR</small></h2>
+<p class="feature-copy">Fem netter. Et sted du kjenner — men som ikke føles helt riktig lenger. Oppdag Five Nights at Jølle, et horror-spill under utvikling fra API Games.</p>
+<div class="actions">
+<a class="btn" href="games/FNAJ/home/">Enter FNAJ <span aria-hidden="true">↗</span></a>
+<a class="btn secondary" href="games/FNAJ/">FNAJ project info</a>
 </div>
 <div class="feature-meta"><span>Horror</span><span>Under development</span><span>PC</span></div>
 </div>
 </section>
-<section class="endcap">
-<div class="endcap-inner">
-<div class="kicker">More worlds are coming</div>
-<h2>This is only the beginning.</h2>
-<p>Flere spill og univers kan legges til her senere. Hvert nytt prosjekt får sin egen seksjon — med en sømløs overgang fra én verden til den neste.</p>
-</div>
-</section>
 </main>
-<footer><span>© <span id="year"></span> API Games</span><span>Made to be explored</span></footer>
+<footer><span>© <span id="year"></span> API GAMES</span><span>ALL RIGHTS RESERVED</span></footer>
 <script>
 (()=> {
 const root=document.documentElement;
-const intro=document.getElementById('intro');
+const hero=document.getElementById('hero');
 const feature=document.getElementById('fnaj');
-let ticking=false;
+let raf=false;
 function update(){
  const vh=window.innerHeight||1;
- const introRect=intro.getBoundingClientRect();
- const fade=Math.min(1,Math.max(0,(vh-introRect.bottom)/(vh*.72)));
- root.style.setProperty('--intro-fade',fade.toFixed(3));
- const featureRect=feature.getBoundingClientRect();
- const progress=Math.min(1,Math.max(0,(vh-featureRect.top)/(vh+featureRect.height*.45)));
- root.style.setProperty('--feature-zoom',progress.toFixed(3));
- ticking=false;
+ const heroBottom=hero.getBoundingClientRect().bottom;
+ const featureTop=feature.getBoundingClientRect().top;
+ const start=vh*.65;
+ const end=vh*.05;
+ const p=Math.max(0,Math.min(1,(start-heroBottom)/(start-end)));
+ const featureP=Math.max(0,Math.min(1,(vh-featureTop)/(vh+feature.offsetHeight*.25)));
+ const darkness=Math.max(p,featureP*.96);
+ root.style.setProperty('--darkness',darkness.toFixed(3));
+ root.style.setProperty('--lightness',((1-darkness)*100).toFixed(1)+'%');
+ document.querySelector('.feature-bg').style.transform='scale('+(1.04+featureP*.045).toFixed(3)+')';
+ raf=false;
 }
-function onScroll(){if(!ticking){requestAnimationFrame(update);ticking=true;}}
-window.addEventListener('scroll',onScroll,{passive:true});
+function scroll(){if(!raf){requestAnimationFrame(update);raf=true;}}
+window.addEventListener('scroll',scroll,{passive:true});
 window.addEventListener('resize',update);
 document.getElementById('year').textContent=new Date().getFullYear();
 update();
