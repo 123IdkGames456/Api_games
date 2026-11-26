@@ -7,10 +7,10 @@
 <meta name="description" content="API Games — games, projects and worlds.">
 <title>API Games</title>
 <style>
-:root{--darkness:0;--bg:color-mix(in srgb,#0b1725 calc(100% - var(--darkness)*100%),#180609 calc(var(--darkness)*100%));--text:#eaf2fb;--muted:color-mix(in srgb,#91a8c0 calc(100% - var(--darkness)*100%),#a8797e calc(var(--darkness)*100%));--line:color-mix(in srgb,#29415a calc(100% - var(--darkness)*100%),#572027 calc(var(--darkness)*100%));--accent:color-mix(in srgb,#58b8ed calc(100% - var(--darkness)*100%),#d93645 calc(var(--darkness)*100%))}
+:root{--text:#eaf2fb;--muted:#a8797e;--line:#572027;--accent:#d93645}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;transition:background-color .15s,color .15s;overflow-x:hidden}
+body{margin:0;background:linear-gradient(180deg,#0b1725 0%,#11101a 48%,#180609 100%);background-attachment:fixed;color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;overflow-x:hidden}
 header{height:76px;max-width:1240px;margin:auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-weight:900;letter-spacing:3px;font-size:21px;text-decoration:none;color:var(--text)}.brand span{color:var(--accent)}
 .nav{font-size:10px;color:var(--muted);letter-spacing:2px}
@@ -24,8 +24,6 @@ h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0 0;letter-spacing:-
 .intro{max-width:660px;color:var(--muted);line-height:1.85;font-size:14px;margin:22px 0 0 4px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin:54px 0 20px}
 h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;margin-left:22px;background:linear-gradient(90deg,var(--line),transparent)}
-.transition-space{height:24vh;min-height:130px;position:relative;display:grid;place-items:center;color:var(--muted);font-size:9px;letter-spacing:3px;text-transform:uppercase}
-.transition-space:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(var(--line),transparent)}
 .feature{position:relative;min-height:110vh;margin:0 calc(-1 * clamp(0px,3vw,30px));display:flex;align-items:flex-end;overflow:hidden;background:#181713;color:#e8e2d4;border-radius:20px}
 .feature-bg{position:absolute;inset:-3%;background:url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center 42%/cover no-repeat;filter:saturate(.72) contrast(1.06);transform:scale(1.04);transition:transform .3s}
 .feature:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#181713 0%,#181713ef 9%,#18171388 43%,#18171322 78%,#18171377 100%),linear-gradient(90deg,#181713cc 0%,#18171366 40%,transparent 85%);z-index:1}
@@ -41,7 +39,7 @@ h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;
 .feature-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#918a7b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
 .feature-meta span:before{content:"•";margin-right:9px;color:#b7a98b}
 footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:1.4px;display:flex;justify-content:space-between}
-@media(max-width:650px){header{padding:0 20px}.nav{font-size:8px;letter-spacing:1px}main{padding:12px 15px 65px}.hero{height:360px;border-radius:15px}.hero img{object-position:54% center}.hero-title{left:23px;bottom:34px}.intro{font-size:13px;margin-top:16px}.section-head{margin-top:42px}.transition-space{height:18vh}.feature{min-height:100svh;border-radius:14px;margin:0 -5px}.feature-bg{background-position:58% center}.feature:before{background:linear-gradient(0deg,#181713 0%,#181713ef 12%,#18171388 48%,#18171335 78%,#18171388 100%),linear-gradient(90deg,#18171388,transparent)}.feature-content{padding:125px 23px 85px}.feature h2{font-size:clamp(52px,14vw,82px)}.feature-copy{font-size:14px}.actions{gap:9px}.btn{flex:1;justify-content:center;padding:14px 12px;font-size:9px}footer{padding:22px 18px;gap:10px;flex-wrap:wrap}}
+@media(max-width:650px){header{padding:0 20px}.nav{font-size:8px;letter-spacing:1px}main{padding:12px 15px 65px}.hero{height:360px;border-radius:15px}.hero img{object-position:54% center}.hero-title{left:23px;bottom:34px}.intro{font-size:13px;margin-top:16px}.section-head{margin-top:42px}.feature{min-height:100svh;border-radius:14px;margin:0 -5px}.feature-bg{background-position:58% center}.feature:before{background:linear-gradient(0deg,#181713 0%,#181713ef 12%,#18171388 48%,#18171335 78%,#18171388 100%),linear-gradient(90deg,#18171388,transparent)}.feature-content{padding:125px 23px 85px}.feature h2{font-size:clamp(52px,14vw,82px)}.feature-copy{font-size:14px}.actions{gap:9px}.btn{flex:1;justify-content:center;padding:14px 12px;font-size:9px}footer{padding:22px 18px;gap:10px;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
@@ -54,7 +52,6 @@ footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid 
 </section>
 <p class="intro" id="intro">Welcome to API Games. Explore our games, projects and worlds, follow development, and discover what comes next.</p>
 <div class="section-head"><h2>Games</h2><div class="section-line"></div></div>
-<div class="transition-space" aria-hidden="true">SCROLL TO DISCOVER</div>
 <section class="feature" id="fnaj">
 <div class="feature-bg" aria-hidden="true"></div>
 <div class="feature-content">
@@ -71,31 +68,7 @@ footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid 
 </main>
 <footer><span>© <span id="year"></span> API GAMES</span><span>ALL RIGHTS RESERVED</span></footer>
 <script>
-(()=> {
-const root=document.documentElement;
-const hero=document.getElementById('hero');
-const feature=document.getElementById('fnaj');
-let raf=false;
-function update(){
- const vh=window.innerHeight||1;
- const heroBottom=hero.getBoundingClientRect().bottom;
- const featureTop=feature.getBoundingClientRect().top;
- const start=vh*.65;
- const end=vh*.05;
- const p=Math.max(0,Math.min(1,(start-heroBottom)/(start-end)));
- const featureP=Math.max(0,Math.min(1,(vh-featureTop)/(vh+feature.offsetHeight*.25)));
- const darkness=Math.max(p,featureP*.96);
- root.style.setProperty('--darkness',darkness.toFixed(3));
- root.style.setProperty('--lightness',((1-darkness)*100).toFixed(1)+'%');
- document.querySelector('.feature-bg').style.transform='scale('+(1.04+featureP*.045).toFixed(3)+')';
- raf=false;
-}
-function scroll(){if(!raf){requestAnimationFrame(update);raf=true;}}
-window.addEventListener('scroll',scroll,{passive:true});
-window.addEventListener('resize',update);
 document.getElementById('year').textContent=new Date().getFullYear();
-update();
-})();
 </script>
 </body>
 </html>
