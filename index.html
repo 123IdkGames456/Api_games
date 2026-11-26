@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f4f7fb">
-<meta name="description" content="API Games — spill, prosjekter og verdener.">
+<meta name="theme-color" content="#0b1725">
+<meta name="description" content="API Games — games, projects and worlds.">
 <title>API Games</title>
 <style>
-:root{--darkness:0;--lightness:100%;--bg:color-mix(in srgb,#f4f7fb var(--lightness),#181713 calc(100% - var(--lightness)));--text:color-mix(in srgb,#142033 var(--lightness),#e8e2d4 calc(100% - var(--lightness)));--muted:color-mix(in srgb,#657286 var(--lightness),#aaa18f calc(100% - var(--lightness)));--line:color-mix(in srgb,#d9e2ec var(--lightness),#464034 calc(100% - var(--lightness)));--accent:color-mix(in srgb,#078fc2 var(--lightness),#b7a98b calc(100% - var(--lightness)))}
+:root{--darkness:0;--bg:color-mix(in srgb,#0b1725 calc(100% - var(--darkness)*100%),#130b0d calc(var(--darkness)*100%));--text:#eaf2fb;--muted:color-mix(in srgb,#91a8c0 calc(100% - var(--darkness)*100%),#b99a9d calc(var(--darkness)*100%));--line:color-mix(in srgb,#29415a calc(100% - var(--darkness)*100%),#4b252b calc(var(--darkness)*100%));--accent:color-mix(in srgb,#58b8ed calc(100% - var(--darkness)*100%),#e34a52 calc(var(--darkness)*100%))}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;transition:background-color .15s,color .15s;overflow-x:hidden}
@@ -15,11 +15,11 @@ header{height:76px;max-width:1240px;margin:auto;padding:0 30px;display:flex;alig
 .brand{font-weight:900;letter-spacing:3px;font-size:21px;text-decoration:none;color:var(--text)}.brand span{color:var(--accent)}
 .nav{font-size:10px;color:var(--muted);letter-spacing:2px}
 main{max-width:1240px;margin:auto;padding:20px 30px 90px}
-.hero{height:clamp(330px,43vw,510px);position:relative;overflow:hidden;border-radius:22px;background:#e4edf5}
+.hero{height:clamp(330px,43vw,510px);position:relative;overflow:hidden;border-radius:22px;background:#0b1725}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#f4f7fb 0%,#f4f7fb05 55%,#f4f7fb55 100%),linear-gradient(90deg,#f4f7fb66,transparent 70%);pointer-events:none;opacity:calc(1 - var(--darkness))}
-.hero-title{position:absolute;z-index:1;left:clamp(24px,6vw,76px);bottom:40px;color:#132033}
-.eyebrow{font-size:10px;color:#078fc2;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0b1725 0%,#0b172500 58%,#0b172588 100%),linear-gradient(90deg,#0b172566,transparent 70%);pointer-events:none}
+.hero-title{position:absolute;z-index:1;left:clamp(24px,6vw,76px);bottom:40px;color:#eaf2fb}
+.eyebrow{font-size:10px;color:#58b8ed;font-weight:800;letter-spacing:3px;text-transform:uppercase}
 h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0 0;letter-spacing:-2px}
 .intro{max-width:660px;color:var(--muted);line-height:1.85;font-size:14px;margin:22px 0 0 4px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin:54px 0 20px}
@@ -30,14 +30,14 @@ h2{font-size:25px;letter-spacing:-.6px;margin:0}.section-line{height:1px;flex:1;
 .feature-bg{position:absolute;inset:-3%;background:url("games/FNAJ/Images/Gemini_Generated_Image_avwtjuavwtjuavwt.jpg") center 42%/cover no-repeat;filter:saturate(.72) contrast(1.06);transform:scale(1.04);transition:transform .3s}
 .feature:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#181713 0%,#181713ef 9%,#18171388 43%,#18171322 78%,#18171377 100%),linear-gradient(90deg,#181713cc 0%,#18171366 40%,transparent 85%);z-index:1}
 .feature-content{position:relative;z-index:2;width:min(1120px,100%);margin:auto;padding:150px clamp(24px,7vw,86px) 100px}
-.stamp{display:inline-block;border:1px solid #b7a98b55;padding:8px 12px;color:#b7a98b;font-size:9px;letter-spacing:3px;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:24px}
+.stamp{display:inline-block;border:1px solid #e34a5255;padding:8px 12px;color:#e34a52;font-size:9px;letter-spacing:3px;text-transform:uppercase;transform:rotate(-1.5deg);margin-bottom:24px}
 .feature h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(58px,10vw,116px);line-height:.88;letter-spacing:-3px;margin:0;color:#eee8d9;text-shadow:0 5px 30px #000}
 .feature h2 small{display:block;font:600 10px Inter,Arial,sans-serif;letter-spacing:6px;color:#a39b89;margin-top:26px}
 .feature-copy{max-width:570px;margin:28px 0 0;color:#c0baaa;line-height:1.85;font-size:15px}
 .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;gap:13px;padding:14px 19px;text-decoration:none;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:800;border:1px solid #716955;background:#d6ccb5;color:#211f1a;border-radius:4px;transition:.25s}
+.btn{display:inline-flex;align-items:center;gap:13px;padding:14px 19px;text-decoration:none;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:800;border:1px solid #7c343b;background:#e34a52;color:#fff;border-radius:4px;transition:.25s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0008;background:#eee5d1}
-.btn.secondary{background:#24221c;color:#c9c1b0;border-color:#514c3f}.btn.secondary:hover{background:#302d25;color:#eee}
+.btn.secondary{background:#1b1114;color:#e9c5c7;border-color:#673039}.btn.secondary:hover{background:#2a1419;color:#fff}
 .feature-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#918a7b;font-size:9px;letter-spacing:2px;text-transform:uppercase}
 .feature-meta span:before{content:"•";margin-right:9px;color:#b7a98b}
 footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:1.4px;display:flex;justify-content:space-between}
@@ -50,22 +50,22 @@ footer{max-width:1240px;margin:auto;padding:24px 30px 35px;border-top:1px solid 
 <main>
 <section class="hero" id="hero">
 <img src="apigamesthumbnail.png" alt="API Games banner">
-<div class="hero-title"><div class="eyebrow">Welcome to API Games</div><h1>Games & projects</h1></div>
+<div class="hero-title"><div class="eyebrow">Welcome to API Games</div><h1>Games & Projects</h1></div>
 </section>
-<p class="intro" id="intro">Velkommen til API Games. Her finner du spillene og prosjektene vi lager. Utforsk, følg utviklingen og se hva som kommer videre.</p>
+<p class="intro" id="intro">Welcome to API Games. Explore our games, projects and worlds, follow development, and discover what comes next.</p>
 <div class="section-head"><h2>Games</h2><div class="section-line"></div></div>
-<div class="transition-space" aria-hidden="true">Keep scrolling</div>
+<div class="transition-space" aria-hidden="true">SCROLL TO DISCOVER</div>
 <section class="feature" id="fnaj">
 <div class="feature-bg" aria-hidden="true"></div>
 <div class="feature-content">
-<div class="stamp">Featured game · 01</div>
+<div class="stamp">FEATURED GAME · 01</div>
 <h2>Five Nights<br>at Jølle<small>FNAJ · HORROR</small></h2>
-<p class="feature-copy">Fem netter. Et sted du kjenner — men som ikke føles helt riktig lenger. Oppdag Five Nights at Jølle, et horror-spill under utvikling fra API Games.</p>
+<p class="feature-copy">Five nights. A familiar place — but something feels wrong. Discover Five Nights at Jølle, a horror game in development by API Games.</p>
 <div class="actions">
 <a class="btn" href="games/FNAJ/home/">Enter FNAJ <span aria-hidden="true">↗</span></a>
-<a class="btn secondary" href="games/FNAJ/">FNAJ project info</a>
+<a class="btn secondary" href="games/FNAJ/">FNAJ Project Info</a>
 </div>
-<div class="feature-meta"><span>Horror</span><span>Under development</span><span>PC</span></div>
+<div class="feature-meta"><span>Horror</span><span>In Development</span><span>PC</span></div>
 </div>
 </section>
 </main>
