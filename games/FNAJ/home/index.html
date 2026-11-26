@@ -20,10 +20,36 @@ footer{padding:30px;text-align:center;border-top:1px solid #343128;color:#6d685b
 @media(max-width:760px){.faq-list{margin-top:35px;gap:10px}.faq-question{padding:19px 17px;font-size:14px}.faq-icon{width:29px;height:29px;flex-basis:29px;font-size:19px}.faq-answer-inner{margin:0 13px 14px;padding:15px 15px;font-size:12px}}
 </style>
 <style id="pageTransitionStyle">body{transition:opacity .3s ease}body.page-out{opacity:0}@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}body.page-in{animation:pageIn .45s ease}</style><link rel="stylesheet" href="../dropdown/style.css">
-<style id="api-main-page-back-style">.api-main-page-back{position:fixed;top:-28px;left:-28px;z-index:1000;width:56px;height:56px;display:block;border:1px solid rgba(25,189,242,.5);border-radius:50%;background:rgba(9,15,24,.9);color:#eaf8ff;text-decoration:none;box-shadow:0 4px 16px #0006;backdrop-filter:blur(12px);transition:background .2s,border-color .2s,transform .2s,opacity .25s}.api-main-page-back:hover{background:rgba(13,29,42,.98);border-color:#19bdf2;transform:scale(1.06)}.api-main-page-back .api-back-icon{position:absolute;right:7px;bottom:7px;width:17px;height:17px;display:grid;place-items:center;color:#54d5ff;font:700 18px/1 Arial,sans-serif}body.api-main-page-leaving{opacity:0!important;transition:opacity .28s ease!important}@media(prefers-reduced-motion:reduce){.api-main-page-back{transition:none}}</style>
+
+<style id="fnaj-red-theme-and-main-menu-link">
+::selection{background:#b8323d;color:#fff}
+.eyebrow,.hero h1 span{color:#d34a55}
+.stamp{border-color:#a83a455c;color:#d34a55}
+.hero:after{background:#a83a4555}
+.btn{border-color:#a63b45;background:#b8323d;color:#fff}
+.btn:hover{background:#d34a55;border-color:#e35d66;color:#fff}
+.btn.secondary{background:#201417;color:#e8c4c7;border-color:#71313a}
+.btn.secondary:hover{background:#32191e;border-color:#b8323d;color:#fff}
+.card{border-color:#4a2a30}
+.card-link{color:#d34a55}
+.archive-image{border-color:#4a2a30}
+.fact{border-left-color:#b8323d}
+.plain:hover{border-color:#d34a55}
+.faq-item:hover,.faq-item.open{border-color:#80343e}
+.faq-icon{color:#d34a55;border-color:#633039}
+.faq-item.open .faq-icon{background:#381a20;border-color:#b8323d}
+.faq-answer-inner{border-left-color:#b8323d}
+.form-submit.success{background:#b8323d;color:#fff}
+.form-submit.error{background:#692832;color:#fff}
+.api-main-menu-link{display:inline-flex;align-items:center;gap:7px;margin-left:18px;padding:7px 10px;border:1px solid rgba(184,50,61,.25);border-radius:999px;color:#bdaeb0;text-decoration:none;font:500 10px Inter,Arial,sans-serif;letter-spacing:.8px;white-space:nowrap;opacity:.76;transition:opacity .2s,border-color .2s,color .2s,background .2s}
+.api-main-menu-link span{font-size:14px;color:#d34a55;line-height:1}
+.api-main-menu-link:hover{opacity:1;color:#fff;border-color:#b8323d;background:#b8323d18}
+@media(max-width:760px){.api-main-menu-link{margin-left:9px;padding:6px 8px;font-size:9px;gap:5px}.api-main-menu-link span{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.api-main-menu-link{transition:none}}
+</style>
 </head>
 <body>
-<header><div class="site-nav"><a class="site-logo" href="../home/">FNAJ</a><div class="site-nav-wrap"><nav><div class="universal-dropdown" id="currentDropdown"><button class="universal-dropdown-toggle" type="button" aria-expanded="false">Game/home</button><div class="universal-dropdown-menu"><small>Home</small><a href="../home/">Home/top</a><a href="../home/#project">Home/project</a><a href="../home/#contact">Home/Contact us</a><div class="nav-separator"></div><small>Game</small><a href="../game/">Game/home</a><div class="nav-separator"></div><small>Gallery</small><a href="../gallery/#images">Gallery/Images</a><a href="../gallery/#videos">Gallery/Videos</a><a href="../gallery/#audio">Gallery/Audio</a></div></div></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Game/home</button></div></div></header>
+<header><div class="site-nav"><a class="site-logo" href="../home/">FNAJ</a><a class="api-main-menu-link" href="../../../" aria-label="Return to API Games main menu"><span aria-hidden="true">←</span> Main menu</a><div class="site-nav-wrap"><nav><div class="universal-dropdown" id="currentDropdown"><button class="universal-dropdown-toggle" type="button" aria-expanded="false">Game/home</button><div class="universal-dropdown-menu"><small>Home</small><a href="../home/">Home/top</a><a href="../home/#project">Home/project</a><a href="../home/#contact">Home/Contact us</a><div class="nav-separator"></div><small>Game</small><a href="../game/">Game/home</a><div class="nav-separator"></div><small>Gallery</small><a href="../gallery/#images">Gallery/Images</a><a href="../gallery/#videos">Gallery/Videos</a><a href="../gallery/#audio">Gallery/Audio</a></div></div></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Game/home</button></div></div></header>
 
 <main>
 <section class="hero" id="home"><div class="hero-bg"></div><div class="hero-content reveal"><div class="stamp">Official Project</div><h1>Welcome to<br>Jølle.<span>A FNAF FAN GAME AIMING FOR REALISM AND SCARINESS</span></h1><p class="hero-copy">Step inside the project, look around, and discover what is being built. It may look quiet here. That does not mean it is empty.</p><div class="actions"><a class="btn" href="#project">Explore the project →</a><a class="btn secondary" href="https://123idkgames456.github.io/FNAJ/game/">The Game</a></div></div></section>
@@ -47,7 +73,7 @@ openContact.addEventListener("click",()=>{modal.classList.add("open");modal.setA
 closeContact.addEventListener("click",closeModal);modal.addEventListener("click",e=>{if(e.target===modal)closeModal});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
 form.addEventListener("submit",async e=>{e.preventDefault();if(!form.reportValidity())return;const name=document.getElementById("senderName").value.trim();const email=emailChoice.checked?emailInput.value.trim():"ANONAMUS";const message=document.getElementById("message").value.trim();const body="Name\n"+name+"\n\nEmail address or ANONAMUS\n"+email+"\n\nMessage\n"+message+"\n\n-sent from FNAJ website";submitButton.classList.add("loading");submitButton.classList.remove("success","error");status.textContent="Sending…";try{const data=new URLSearchParams();data.append("_subject","FNAJ Website Message");data.append("_captcha","false");data.append("_template","basic");data.append("message",body);if(emailChoice.checked)data.append("_replyto",emailInput.value.trim());const response=await fetch(form.action,{method:"POST",body:data,headers:{Accept:"application/json","Content-Type":"application/x-www-form-urlencoded"}});if(!response.ok)throw new Error("send failed");status.textContent="Message sent.";submitButton.textContent="Sent ✓";submitButton.classList.remove("loading");submitButton.classList.add("success");form.reset();anonymousChoice.checked=true;emailField.classList.remove("show");emailInput.required=false;replyTo.value="";setTimeout(()=>{closeModal();submitButton.textContent="Send message →";submitButton.classList.remove("success")},1300)}catch(error){status.textContent="Could not send. Please try again.";submitButton.classList.remove("loading");submitButton.classList.add("error");submitButton.textContent="Try again →"}});
 </script><script id="oldFadeScript">document.addEventListener("DOMContentLoaded",()=>requestAnimationFrame(()=>document.body.classList.add("page-ready")));window.addEventListener("pageshow",()=>document.body.classList.add("page-ready"));document.addEventListener("click",e=>{const link=e.target.closest("a");if(!link||link.target==="_blank"||link.hasAttribute("download"))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;e.preventDefault();document.body.classList.remove("page-ready");document.body.classList.add("page-leaving");setTimeout(()=>location.href=url.href,420)});</script><script src="../dropdown/script.js?v=20261008"></script>
-<a class="api-main-page-back" id="api-main-page-back" href="../../../" aria-label="Go to main page"><span class="api-back-icon" aria-hidden="true">←</span></a>
-<script id="api-main-page-back-script">(()=>{const back=document.getElementById("api-main-page-back");if(!back)return;back.addEventListener("click",event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();event.stopImmediatePropagation();document.body.classList.add("api-main-page-leaving");setTimeout(()=>location.href=back.href,260)},true)})();</script>
+
+
 </body>
 </html>
