@@ -32,10 +32,7 @@
   }
   #fnaj-shared-header .fnaj-dropdown-toggle:after{content:"▾";font-size:13px;color:#ff6472}
   #fnaj-shared-header .fnaj-dropdown-toggle:hover{background:#51202a;border-color:#c54a59}
-  #fnaj-shared-header .fnaj-dropdown:hover .fnaj-dropdown-menu,
-  #fnaj-shared-header .fnaj-dropdown:focus-within .fnaj-dropdown-menu{
-    opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)
-  }
+  /* Dropdown visibility is controlled by the click toggle only. */
 }
 `;
 style.textContent += `
