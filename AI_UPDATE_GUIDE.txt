@@ -1,0 +1,66 @@
+API GAMES / FNAJ — AI UPDATE GUIDE
+===================================
+
+Purpose
+-------
+This file is a handoff guide for another AI or developer working on this repository.
+Read it before editing anything. Make only the change requested by the user, and preserve the current site.
+
+Repository
+---------
+Repository: 123IdkGames456/Api_games
+Branch: main
+GitHub Pages main site: https://123idkgames456.github.io/Api_games/
+FNAJ home: https://123idkgames456.github.io/Api_games/games/FNAJ/home/
+
+Important structure
+-------------------
+- index.html: API Games main page. Its background is intended to fade from blue at the top to red lower down.
+- games/FNAJ/: FNAJ project pages. FNAJ pages use a red/dark-red theme; do not make them blue/red 50-50.
+- games/FNAJ/shared/header.js: shared header used by FNAJ pages. Update this shared file when changing the common FNAJ header.
+- FNAJ pages include the shared header script. If its URL uses a cache-buster such as ?v=3, increment it on the relevant pages after changing header.js so browsers load the new version.
+- Keep the existing page content, routes, and layout unless the user specifically asks to change them.
+
+Current shared header requirements
+--------------------------------
+- PC and phone must use the SAME top bar and SAME page-name dropdown. Do not create a separate mobile navigation/menu button.
+- The dropdown button displays the current page name (Home, Game, Gallery, or Terms).
+- Do not show an arrow beside the page name.
+- The dropdown starts CLOSED on every page load.
+- It opens only when the page-name button is clicked, and clicking that same button again closes it.
+- Clicking outside or pressing Escape closes it.
+- On phone, the dropdown is a small panel below/near the top bar. It must not cover the whole screen or stay stuck open.
+- Do not use hover or focus-within to force the dropdown open. This previously made it remain open after a click.
+- Avoid duplicate/conflicting CSS rules. Inspect the final cascade and test both desktop and mobile widths.
+- Menu links should navigate correctly and close the dropdown after selection.
+
+Known mistakes to avoid
+-----------------------
+1. Do not create separate desktop and mobile menus/top bars. The user explicitly wants one shared top bar.
+2. Do not make the mobile dropdown open automatically, fill the screen, or remain visible when closed.
+3. Do not use hover/focus CSS as the open state. Use one explicit open class/state controlled by the click handler.
+4. Do not add an arrow to the current-page button.
+5. Do not change FNAJ pages to a blue/red split. The blue-to-red fade belongs to the API Games main page.
+6. Do not add scroll-based background fading/parallax or a “scroll to discover” prompt unless explicitly requested.
+7. Do not reset the repository to an old commit, force-update main, or overwrite unrelated work to fix a small visual issue.
+8. Do not redesign or recreate whole pages when the request is a small targeted change.
+9. Do not claim an update is complete until the GitHub tool confirms the commit.
+10. Do not guess file contents or SHA values. Fetch the current file from main before editing, then use its current SHA for updates.
+
+Safe update workflow
+--------------------
+1. Read this guide and identify the exact page/component the user means.
+2. Fetch the current version of the relevant file(s) from branch main.
+3. Inspect the existing HTML, CSS, and JavaScript before deciding how to change them.
+4. Make the smallest targeted edit that fulfills the request. Preserve existing styles, routes, IDs, names, and working behavior.
+5. For an existing file, update it using the freshly fetched file SHA. For a new text file, use the create-file action.
+6. If shared header.js changes, check all FNAJ pages that load it and update the cache-buster consistently where needed.
+7. Verify the final code for duplicate/conflicting CSS, correct current-page labels, closed initial state, click-to-open/click-to-close, outside-click close, Escape close, and mobile sizing.
+8. Confirm the commit result. Then give the user a short summary and the exact updated page link.
+9. If anything cannot be verified, say so clearly rather than guessing.
+
+Message template for another AI
+------------------------------
+"Read AI_UPDATE_GUIDE.txt first. Work in 123IdkGames456/Api_games on main. Please make only this change: [describe the requested change]. Fetch the current files and SHAs first, preserve all unrelated content and existing behavior, do not reset/force-push or redesign pages, and verify the result on both PC and phone. Follow the shared-header rules in the guide. Report exactly which files changed, what changed, and the confirmed commit SHA."
+
+End of guide.
